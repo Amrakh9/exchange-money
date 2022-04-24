@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* HEADER */
+.container{
+    display: flex;
+    background-color: #F5F5F6;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    height: 50px;
+}
+.logo{
+    padding-left: 150px;
+}
+span{
+    font-size:11px;
+}
+.titles{
+    color: #959BA4;
+    font-weight: bold;
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+}
+
+span:hover{
+    color: #000000;
+}
+
+.login-btn{
+    margin-right: 150px;
+    padding: 10px;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: initial;
+    background-color: white;
+}
+
+
+/* BODY */
+.text{
+    width: 48%;
+    margin: auto;
+}
+.header1{
+    margin-top: 56px;
+}
+
+/* EXCHANGE */
+
+.calculator {
+    width: 1440px;
+    margin: 35px auto 45px;
+}
+
+.calc-box {
+    margin-left: 389px;
+    margin-top: 30px;
+    width: 60%;
+    display: flex; 
+    justify-content: space-between;
+}
+
+.calc-item {
+    width: 360px;
+    display: inline-block;
+}
+
+.calc-title{
+    font-size: 14px;
+    margin: 10px 0px;
+    color: #9F9F9F;
+    font-weight: 400;
+}
+
+.calc-currency {
+    display: flex;
+    justify-content: space-between;
+    
+}
+.round-item-left{
+    border-radius: 5px 0 0 5px;
+}
+.round-item-right {
+    border-radius: 0 5px 5px 0;
+}
+.calc-currency-item {
+    width: 85px;
+    height: 40px;
+    padding: 12px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #E5E5E5;
+    color: #C6C6C6;
+    background-color: white;
+}
+
+.active {
+    background-color: #833AE0;
+    color: white;
+}
+
+.calc-input {
+    margin: 24px 0;
+    padding: 30px 20px 15px;
+    border: 1px solid #cdcdcd;
+}
+
+.calc-input-field {
+    margin-bottom: 30px;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 42px;
+    width: 100%;
+    border: none;
+}
+
+.calc-input-rate {
+    color: #C6C6C6;
+    font-size: 12px;
+    font-weight: 400;
+}

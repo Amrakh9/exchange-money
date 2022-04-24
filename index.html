@@ -1,20 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-</head>
-<body>
-    
+  </head>
+  <body>
+    <!-- HEADER -->
+    <div class="container">
+      <div class="logo">
+        <img src="img/Asset 1@3x 1.svg" alt="logo" />
+      </div>
+      <div class="titles">
+        <span>БАНК</span>
+        <span>БИЗНЕС</span>
+        <span>ИНВЕСТИЦИИ</span>
+        <span>СТРАХОВАНИЕ</span>
+        <span>МОБАЙЛ</span>
+        <span>ПУТЕШЕСТВИЯ</span>
+        <span>РАЗВЛЕЧЕНИЯ</span>
+      </div>
 
+      <div>
+        <button class="login-btn">ВОЙТИ</button>
+      </div>
+    </div>
 
+    <!-- PURPOSE -->
+    <div class="text">
+      <h1 class="header1">Конвертер валют онлайн</h1>
+    </div>
 
+    <!-- EXCHANGE 'from' PART-->
+    <div class="calc-box">
+      <div class="calc-item from">
+        <div class="calc-title">У меня есть</div>
+        <div class="calc-currency">
+          <button
+            class="calc-currency-item round-item-left"
+            type="button"
+            value="RUB"
+          >
+            RUB
+          </button>
+          <button class="calc-currency-item" type="button" value="USD">
+            USD
+          </button>
+          <button class="calc-currency-item" type="button" value="EUR">
+            EUR
+          </button>
+          <button class="calc-currency-item" type="button" value="GBP">
+            GBP
+          </button>
+          <select class="calc-currency-item round-item-right">
+            others
+          </select>
+        </div>
+        <div class="calc-input">
+          <input
+            class="calc-input-field"
+            type="number"
+            min="1"
+            maxlength="10"
+            value="1"
+            data.reverse="false"
+          />
+          <div class="calc-input-rate"></div>
+        </div>
+      </div>
 
-
+      <!-- EXCHANGE 'to' PART-->
+      <div class="calc-item to">
+        <div class="calc-title">Хочу приобрести</div>
+        <div class="calc-currency">
+          <button
+            class="calc-currency-item round-item-left"
+            type="button"
+            value="RUB"
+          >
+            RUB
+          </button>
+          <button class="calc-currency-item" type="button" value="USD">
+            USD
+          </button>
+          <button class="calc-currency-item" type="button" value="EUR">
+            EUR
+          </button>
+          <button class="calc-currency-item" type="button" value="GBP">
+            GBP
+          </button>
+          <select class="calc-currency-item round-item-right">
+            others
+          </select>
+        </div>
+        <div class="calc-input">
+          <input
+            class="calc-input-field"
+            type="number"
+            min="1"
+            maxlength="10"
+            value="1"
+            data.reverse="true"
+            id="right"
+          />
+          <div class="calc-input-rate"></div>
+        </div>
+      </div>
+    </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
