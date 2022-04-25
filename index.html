@@ -9,27 +9,20 @@
   </head>
   <body>
     <!-- HEADER -->
-    <div class="container">
-      <div class="logo">
-        <img src="img/Asset 1@3x 1.svg" alt="logo" />
+    <div id="header">
+      <img class="logo" src="img/Asset 1@3x 1.svg" alt="Logo">
+      <div class="menu">
+          <a class="selectedmenu" href="#">БАНК</a>
+          <a href="#">БИЗНЕС</a>
+          <a href="#">ИНВЕСТИЦИИ</a>
+          <a href="#">СТРАХОВАНИЕ</a>
+          <a href="#">МОБАЙЛ</a>
+          <a href="#">ПУТЕШЕСТВИЯ</a>
+          <a href="#">РАЗВЛЕЧЕНИЯ</a>
       </div>
-      <!--  -->
-      <div class="menu">             
-        <span>БАНК</span>
-        <span>БИЗНЕС</span>
-        <span>ИНВЕСТИЦИИ</span>   
-        <span>СТРАХОВАНИЕ</span>
-        <span>МОБАЙЛ</span>
-        <span>ПУТЕШЕСТВИЯ</span>
-        <span>РАЗВЛЕЧЕНИЯ</span>
-      </div>
-
-      <div>
-        <button class="login">ВОЙТИ</button>
-      </div>
-    </div>
-
-    <div id="main">
+      <button class="login">ВОЙТИ</button>
+  </div>
+  <div id="main">
       <h1>Конвертер валют онлайн</h1>
       <div class="mainblock">
           <div class="block1">
@@ -54,7 +47,7 @@
                   <button id="currency2" class="currency round-right">GBP</button>
               </div>
               <div class="status">
-                  <input id="input2" class="input" type="number">
+                  <input id="input2" class="input" placeholder="Enter here..." type="number">
                   <p id="exchange2" class="exchange">1 USD = Loading...</p>
               </div>
           </div>

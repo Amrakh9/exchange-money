@@ -93,15 +93,11 @@ function converter() {
 
     /* Convert operation */
 
-    if (bool == true && inputOne.value == '') {
-        inputTwo.value = 0;
-        sumTwo = '';
-    }
-    if (bool == false && inputTwo.value == '') {
-        inputOne.value = 0;
-        sum = '';
-    } else if (one == two) {
+    if (one == two && bool == true) {
         inputTwo.value = inputOne.value;
+        return;
+    } else if (one == two && bool == false) {
+        inputOne.value = inputTwo.value;
         return;
     } else {
         if (bool == true) {

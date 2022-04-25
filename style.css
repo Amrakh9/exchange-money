@@ -1,41 +1,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
-*{
-    font-family: 'Roboto', sans-serif;
+* {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
 }
 
 
-/* HEADER */
-.container{
-    display: flex;
-    background-color: #F5F5F6;
-    align-items: center;
-    text-align: center;
-    justify-content: space-between;
+/* ----- header part ------ */
+
+#header {
+    width: 100%;
     height: 50px;
-}
-.logo{
-    padding-left: 150px;
-}
-span{
-    font-size:11px;
-}
-.menu{
-    color: #959BA4;
-    font-weight: bold;
+    background-color: #F5F5F6;
     display: flex;
-    width: 50%;
+    align-items: center;
     justify-content: space-between;
+    font-size: 11px;
+    font-weight: 500;
 }
 
-span:hover{
+.menu {
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+    font-weight: 500;
+}
+
+.selectedmenu {
     color: #000000;
 }
 
-.login{
+.logo {
+    width: 89px;
+    height: 23px;
+    margin-left: 100px;
+}
+
+a {
+    color: #959BA4;
+    text-decoration: none;
+    transition: transform .2s;
+}
+
+.login {
     margin-right: 150px;
     padding: 10px;
     font-size: 11px;
@@ -46,16 +56,7 @@ span:hover{
 }
 
 
-/* BODY */
-.text{
-    width: 48%;
-    margin: auto;
-}
-.header1{
-    margin-top: 56px;
-}
-
-/* EXCHANGE */
+/* ----- main part ----- */
 
 #main {
     width: 60%;
@@ -118,21 +119,19 @@ input {
     margin: 10px 0 25px 15px;
     border: 0px;
     font-size: 36px;
-    font-weight: 700;
     width: 230px;
     border-color: #833AE0;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
 
 .exchange {
     margin: 0 0 0 15px;
     font-size: 12px;
 }
+
+
+
+
 
 /*for tablets*/
 
@@ -146,7 +145,7 @@ input::-webkit-inner-spin-button {
     .menu {
         justify-content: center;
     }
-    .menu span:nth-child(n+2) {
+    .menu a:nth-child(n+2) {
         display: none;
     }
     #main {
@@ -183,7 +182,7 @@ input::-webkit-inner-spin-button {
     .menu {
         justify-content: center;
     }
-    .menu span:nth-child(n+2) {
+    .menu a:nth-child(n+2) {
         display: none;
     }
     #main {
