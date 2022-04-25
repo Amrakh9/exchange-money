@@ -5,10 +5,10 @@ const inputTwo = document.querySelector('#input2'); /*right input*/
 const exchangeOne = document.querySelector('#exchange1'); /*left exchange*/
 const exchangeTwo = document.querySelector('#exchange2'); /*right exchange*/
 
-let one = 'RUB'; /*left selected currency*/
-let two = 'USD'; /*right selected currency*/
-let sum = inputOne.value = 1; /*left input current value*/
-let sumTwo = inputTwo.value; /*right input current value*/
+let one = 'RUB';
+let two = 'USD'; 
+let sum = inputOne.value = 1; 
+let sumTwo = inputTwo.value; 
 let bool = true;
 
 inputOne.addEventListener('keyup', result);
