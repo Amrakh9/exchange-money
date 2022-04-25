@@ -23,7 +23,7 @@
 span{
     font-size:11px;
 }
-.titles{
+.menu{
     color: #959BA4;
     font-weight: bold;
     display: flex;
@@ -35,7 +35,7 @@ span:hover{
     color: #000000;
 }
 
-.login-btn{
+.login{
     margin-right: 150px;
     padding: 10px;
     font-size: 11px;
@@ -57,75 +57,155 @@ span:hover{
 
 /* EXCHANGE */
 
-.calculator {
-    width: 1440px;
-    margin: 35px auto 45px;
-}
-
-.calc-box {
-    margin-left: 389px;
-    margin-top: 30px;
+#main {
     width: 60%;
-    display: flex; 
-    justify-content: space-between;
+    margin: auto;
+    margin-top: 50px;
 }
 
-.calc-item {
-    width: 360px;
-    display: inline-block;
-}
-
-.calc-title{
-    font-size: 14px;
-    margin: 10px 0px;
-    color: #9F9F9F;
-    font-weight: 400;
-}
-
-.calc-currency {
+.mainblock {
     display: flex;
     justify-content: space-between;
-    
+    margin-top: 30px;
 }
-.round-item-left{
+
+h1 {
+    font-size: 36px;
+}
+
+.ihave {
+    color: #9F9F9F;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+.currencies {
+    display: flex;
+    width: 260px;
+}
+
+.currency {
+    color: #C6C6C6;
+    background-color: #FFFFFF;
+    text-align: center;
+    width: 65px;
+    height: 30px;
+    border: 1px solid #E5E5E5;
+    transition: 0.5s;
+}
+
+.round-left {
     border-radius: 5px 0 0 5px;
 }
-.round-item-right {
+
+.round-right {
     border-radius: 0 5px 5px 0;
 }
-.calc-currency-item {
-    width: 85px;
-    height: 40px;
-    padding: 12px;
-    text-align: center;
-    cursor: pointer;
+
+.status {
+    width: 260px;
+    margin-top: 25px;
     border: 1px solid #E5E5E5;
+    border-radius: 3px;
+    height: 102px;
+}
+
+.status p {
     color: #C6C6C6;
-    background-color: white;
 }
 
-.active {
-    background-color: #833AE0;
-    color: white;
-}
-
-.calc-input {
-    margin: 24px 0;
-    padding: 30px 20px 15px;
-    border: 1px solid #cdcdcd;
-}
-
-.calc-input-field {
-    margin-bottom: 30px;
-    font-size: 38px;
+input {
+    margin: 10px 0 25px 15px;
+    border: 0px;
+    font-size: 36px;
     font-weight: 700;
-    line-height: 42px;
-    width: 100%;
-    border: none;
+    width: 230px;
+    border-color: #833AE0;
 }
 
-.calc-input-rate {
-    color: #C6C6C6;
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.exchange {
+    margin: 0 0 0 15px;
     font-size: 12px;
-    font-weight: 400;
+}
+
+/*for tablets*/
+
+@media only screen and (max-width: 900px) {
+    .mainblock {
+        flex-direction: column;
+    }
+    .status {
+        margin-bottom: 40px;
+    }
+    .menu {
+        justify-content: center;
+    }
+    .menu span:nth-child(n+2) {
+        display: none;
+    }
+    #main {
+        width: 80%;
+    }
+    .logo {
+        margin-left: 50px;
+    }
+    .login {
+        margin-right: 50px;
+    }
+    h1 {
+        text-align: center;
+    }
+    .mainblock {
+        justify-content: center;
+        align-self: center;
+    }
+    .block1 {
+        align-self: center;
+    }
+    .block2 {
+        align-self: center;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .mainblock {
+        flex-direction: column;
+    }
+    .status {
+        margin-bottom: 40px;
+    }
+    .menu {
+        justify-content: center;
+    }
+    .menu span:nth-child(n+2) {
+        display: none;
+    }
+    #main {
+        width: 80%;
+    }
+    .logo {
+        margin-left: 50px;
+    }
+    .login {
+        margin-right: 50px;
+    }
+    h1 {
+        text-align: center;
+    }
+    .mainblock {
+        justify-content: center;
+        align-self: center;
+    }
+    .block1 {
+        align-self: center;
+    }
+    .block2 {
+        align-self: center;
+    }
 }

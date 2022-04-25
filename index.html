@@ -13,10 +13,11 @@
       <div class="logo">
         <img src="img/Asset 1@3x 1.svg" alt="logo" />
       </div>
-      <div class="titles">
+      <!--  -->
+      <div class="menu">             
         <span>БАНК</span>
         <span>БИЗНЕС</span>
-        <span>ИНВЕСТИЦИИ</span>
+        <span>ИНВЕСТИЦИИ</span>   
         <span>СТРАХОВАНИЕ</span>
         <span>МОБАЙЛ</span>
         <span>ПУТЕШЕСТВИЯ</span>
@@ -24,91 +25,41 @@
       </div>
 
       <div>
-        <button class="login-btn">ВОЙТИ</button>
+        <button class="login">ВОЙТИ</button>
       </div>
     </div>
 
-    <!-- PURPOSE -->
-    <div class="text">
-      <h1 class="header1">Конвертер валют онлайн</h1>
-    </div>
-
-    <!-- EXCHANGE 'from' PART-->
-    <div class="calc-box">
-      <div class="calc-item from">
-        <div class="calc-title">У меня есть</div>
-        <div class="calc-currency">
-          <button
-            class="calc-currency-item round-item-left"
-            type="button"
-            value="RUB"
-          >
-            RUB
-          </button>
-          <button class="calc-currency-item" type="button" value="USD">
-            USD
-          </button>
-          <button class="calc-currency-item" type="button" value="EUR">
-            EUR
-          </button>
-          <button class="calc-currency-item" type="button" value="GBP">
-            GBP
-          </button>
-          <select class="calc-currency-item round-item-right">
-            others
-          </select>
-        </div>
-        <div class="calc-input">
-          <input
-            class="calc-input-field"
-            type="number"
-            min="1"
-            maxlength="10"
-            value="1"
-            data.reverse="false"
-          />
-          <div class="calc-input-rate"></div>
-        </div>
+    <div id="main">
+      <h1>Конвертер валют онлайн</h1>
+      <div class="mainblock">
+          <div class="block1">
+              <p class="ihave">У меня есть</p>
+              <div class="currencies">
+                  <button id="currency1" class="currency round-left">RUB</button>
+                  <button id="currency1" class="currency">USD</button>
+                  <button id="currency1" class="currency">EUR</button>
+                  <button id="currency1" class="currency round-right">GBP</button>
+              </div>
+              <div class="status">
+                  <input id="input1" class="input" placeholder="Enter here..." type="number">
+                  <p id="exchange1" class="exchange">1 RUB = Loading...</p>
+              </div>
+          </div>
+          <div class="block2">
+              <p class="ihave">Хочу приобрести</p>
+              <div class="currencies">
+                  <button id="currency2" class="currency round-left">RUB</button>
+                  <button id="currency2" class="currency">USD</button>
+                  <button id="currency2" class="currency">EUR</button>
+                  <button id="currency2" class="currency round-right">GBP</button>
+              </div>
+              <div class="status">
+                  <input id="input2" class="input" type="number">
+                  <p id="exchange2" class="exchange">1 USD = Loading...</p>
+              </div>
+          </div>
       </div>
-
-      <!-- EXCHANGE 'to' PART-->
-      <div class="calc-item to">
-        <div class="calc-title">Хочу приобрести</div>
-        <div class="calc-currency">
-          <button
-            class="calc-currency-item round-item-left"
-            type="button"
-            value="RUB"
-          >
-            RUB
-          </button>
-          <button class="calc-currency-item" type="button" value="USD">
-            USD
-          </button>
-          <button class="calc-currency-item" type="button" value="EUR">
-            EUR
-          </button>
-          <button class="calc-currency-item" type="button" value="GBP">
-            GBP
-          </button>
-          <select class="calc-currency-item round-item-right">
-            others
-          </select>
-        </div>
-        <div class="calc-input">
-          <input
-            class="calc-input-field"
-            type="number"
-            min="1"
-            maxlength="10"
-            value="1"
-            data.reverse="true"
-            id="right"
-          />
-          <div class="calc-input-rate"></div>
-        </div>
-      </div>
-    </div>
+  </div>
 
     <script src="script.js"></script>
   </body>

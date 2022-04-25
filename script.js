@@ -1,184 +1,130 @@
-const fromPanel = document.querySelector('.from');
-const toPanel = document.querySelector('.to');
+const currencyOne = document.querySelectorAll('#currency1'); /*left buttons*/
+const currencyTwo = document.querySelectorAll('#currency2'); /*right buttons*/
+const inputOne = document.querySelector('#input1'); /*left input*/
+const inputTwo = document.querySelector('#input2'); /*right input*/
+const exchangeOne = document.querySelector('#exchange1'); /*left exchange*/
+const exchangeTwo = document.querySelector('#exchange2'); /*right exchange*/
 
-const fromInput = fromPanel.querySelector('.calc-input-field');
-const toInput = toPanel.querySelector('.calc-input-field');
+let one = 'RUB'; /*left selected currency*/
+let two = 'USD'; /*right selected currency*/
+let sum = inputOne.value = 1; /*left input current value*/
+let sumTwo = inputTwo.value; /*right input current value*/
+let bool = true;
 
-const fromButtonList = fromPanel.querySelector('.calc-currency');
-const toButtonList = toPanel.querySelector('.calc-currency');
+inputOne.addEventListener('keyup', result);
+inputTwo.addEventListener('keyup', result);
+inputOne.addEventListener('click', rev);
+inputTwo.addEventListener('click', revTwo);
 
-const fromRate = fromPanel.querySelector('.calc-input-rate');
-const toRate = toPanel.querySelector('.calc-input-rate');
+function rev() {
+    bool = true;
+};
 
-const fromSelector = fromPanel.querySelector('select.calc-currency-item');
-const toSelector = toPanel.querySelector('select.calc-currency-item');
+function revTwo() {
+    bool = false;
+};
 
-// current state of currencies
-
-const state = { from: 'RUB', to: 'USD', amount: 1 }
-
-
-
-// Receiveing data from the server with query parameters immediately with the amount to be converted:
-
-async function convert(from, to, amount) {
-    const response = await fetch(`https://api.exchangerate.host/convert?from=${from}&to=${to}&amount=${amount}&places=4`);
-    const data = await response.json();
-    return [data.result, data.info.rate];
-}
-
-function activateButton(button) {
-    button.classList.add('active');
-}
-
-function disableButton(button) {
-    button.classList.remove('active');
-}
-
-function getActiveButton(buttonList) {
-    return buttonList.querySelector('.active');
-}
-
-function getButtonByCurrency(currency, buttonList) {
-    return buttonList.querySelector(`.calc-currency-item[value=${currency}]`);
-}
-
-function initialApp() {
-    activateButton(getButtonByCurrency(state.from, fromButtonList));
-    activateButton(getButtonByCurrency(state.to, toButtonList));
-}
-initialApp();
-
-
-// Event handlers for inputs, currency selection buttons and selects
-
-fromInput.addEventListener('input', async (event) => {
-    let rate;
-    let currencyFrom = fromButtonList.querySelector('.active').value;
-    let currencyTo = toButtonList.querySelector('.active').value;
-    [toInput.value, rate] = await convert(currencyFrom, currencyTo, event.target.value);
-
-    fromRate.innerText = (currencyFrom === currencyTo) ? `1 ${currencyFrom} = 1 ${currencyTo.toFixed(0)}`:  `1 ${currencyFrom} = ${rate} ${currencyTo}`; 
-    toRate.innerText = (currencyFrom === currencyTo) ? `1 ${currencyFrom} = 1 ${currencyTo.toFixed(0)}` : `1 ${currencyTo} = ${(1/ rate).toFixed(4)} ${currencyFrom}`;
-})
-
-toInput.addEventListener('input', async (event) => {
-    let currencyFrom = fromButtonList.querySelector('.active').value;
-    let currencyTo = toButtonList.querySelector('.active').value;
-    [fromInput.value, rate] = await convert(currencyTo, currencyFrom, event.target.value);
-
-    fromRate.innerText = (currencyFrom === currencyTo) ? `1 ${currencyFrom} = 1 ${currencyTo.toFixed(0)}`:  `1 ${currencyFrom} = ${rate} ${currencyTo}`; 
-    toRate.innerText = (currencyFrom === currencyTo) ? `1 ${currencyFrom} = 1 ${currencyTo.toFixed(0)}` : `1 ${currencyTo} = ${(1/ rate).toFixed(4)} ${currencyFrom}`;
-
-})
-
-// Events that make buttons "active" when clicked:
-
-fromButtonList.addEventListener('click', (event) => {
-    if (event.target.classList.contains('calc-currency-item')) {
-        disableButton(getActiveButton(fromButtonList));
-        activateButton(event.target);
+/* left side default selection */
+currencyOne.forEach((currencyOne) => {
+    if (currencyOne.innerText == one) {
+        currencyOne.style.background = '#833AE0';
+        currencyOne.style.color = '#FFFFFF';
     }
-
-})
-
-toButtonList.addEventListener('click', (event) => {
-    if (event.target.classList.contains('calc-currency-item')) {
-        disableButton(getActiveButton(toButtonList));
-        activateButton(event.target);
-    }
-})
-
-// We check whether the selected control is a button or a select - and depending on this we calculate:
-
-fromButtonList.addEventListener("click", async (event) => {
-    if (event.target.tagName === "BUTTON") {
-        let rate;
-        let currencyFrom = event.target.value;
-        let currencyTo = toButtonList.querySelector('.active').value;
-        [toInput.value, rate] = await convert(currencyFrom, currencyTo, fromInput.value);
-
-
-        // exchange rate
-
-        fromRate.innerText = (currencyFrom === currencyTo) ? `1 ${currencyFrom} = 1 ${currencyTo}`:  `1 ${currencyFrom} = ${rate} ${currencyTo}`; 
-        toRate.innerText = (currencyFrom === currencyTo) ? `1 ${currencyFrom} = 1 ${currencyTo}` : `1 ${currencyTo} = ${(1/ rate).toFixed(4)} ${currencyFrom}`;
-    }
-    
+    currencyOne.addEventListener('click', clickButtonCurrencyOne);
 });
 
-fromSelector.addEventListener("change", async (event) => {
-    if (event.target.tagName === "SELECT") {
-        let rate;
-        let currencyFrom = event.target.value;
-        let currencyTo = toButtonList.querySelector('.active').value;
-
-        [toInput.value, rate] = await convert(currencyFrom, currencyTo, fromInput.value);
-
-        // exchange rate
-
-        fromRate.innerText = (currencyFrom === currencyTo) ? `1 ${currencyFrom} = 1 ${currencyTo}`:  `1 ${currencyFrom} = ${rate} ${currencyTo}`; 
-        toRate.innerText = (currencyFrom === currencyTo) ? `1 ${currencyFrom} = 1 ${currencyTo}` : `1 ${currencyTo} = ${(1/ rate).toFixed(4)} ${currencyFrom}`;
-
+/* right side default selection */
+currencyTwo.forEach((currencyTwo) => {
+    if (currencyTwo.innerText == two) {
+        currencyTwo.style.background = '#833AE0';
+        currencyTwo.style.color = '#FFFFFF';
     }
-    
-})
-
-
-
-toButtonList.addEventListener("click", async (event) => {
-
-    if (event.target.tagName === "BUTTON") {
-        let currencyFrom = event.target.value;
-        let currencyTo = fromButtonList.querySelector('.active').value;
-        [toInput.value, rate] = await convert(currencyTo, currencyFrom, fromInput.value);
-
-        // exchange rate
-
-        fromRate.innerText = (currencyFrom === currencyTo) ? `1 ${currencyFrom} = 1 ${currencyTo}`:  `1 ${currencyFrom} = ${rate} ${currencyTo}`; 
-        toRate.innerText = (currencyFrom === currencyTo) ? `1 ${currencyFrom} = 1 ${currencyTo}` : `1 ${currencyTo} = ${(1/ rate).toFixed(4)} ${currencyFrom}`;
-
-    }
+    currencyTwo.addEventListener('click', clickButtonCurrencyTwo);
 });
 
-
-toSelector.addEventListener("change", async (event) => {
-    if (event.target.tagName === "SELECT") {
-        let currencyFrom = event.target.value;
-        let currencyTo = fromButtonList.querySelector('.active').value;
-
-        [toInput.value, rate] = await convert(currencyTo, currencyFrom, fromInput.value);
-
-        // exchange rate
-
-        fromRate.innerText = (currencyFrom === currencyTo) ? `1 ${currencyFrom} = 1 ${currencyTo}`:  `1 ${currencyFrom} = ${rate} ${currencyTo}`; 
-        toRate.innerText = (currencyFrom === currencyTo) ? `1 ${currencyFrom} = 1 ${currencyTo}` : `1 ${currencyTo} = ${(1/ rate).toFixed(4)} ${currencyFrom}`;
-
-    }
-});
-
-
-
-// Request to get all currency options from the server:
-async function getCurrency() {
-    const resp = await fetch("https://api.exchangerate.host/latest")
-    const data = await resp.json()
-    return data;
-}
-
-//Getting data from the server
-getCurrency()
-    .then((data) => {
-        const currencyArr = Object.keys(data.rates);
-        renderSelect(currencyArr, fromSelector);
-        renderSelect(currencyArr, toSelector);
-    })
-
-// Draw selectors based on data from the server: *https://javascript.info/form-elements
-
-function renderSelect(arr, whereToAppend) {
-    arr.forEach(element => {
-        let option = new Option(`${element}`, `${element}`);
-        whereToAppend.append(option);
+/*left side click actions */
+function clickButtonCurrencyOne(event) {
+    currencyOne.forEach((currencyOne) => {
+        if (currencyOne.style.background !== '') {
+            currencyOne.style.background = '';
+            currencyOne.style.color = '#C6C6C6';
+        }
     });
+    event.target.style.background = '#833AE0';
+    event.target.style.color = '#FFFFFF';
+    one = event.target.innerText;
+    result();
 }
+
+/*right side click actions */
+function clickButtonCurrencyTwo(event) {
+    currencyTwo.forEach((currencyTwo) => {
+        if (currencyTwo.style.background !== '') {
+            currencyTwo.style.background = '';
+            currencyTwo.style.color = '#C6C6C6';
+        }
+    });
+    event.target.style.background = '#833AE0';
+    event.target.style.color = '#FFFFFF';
+    two = event.target.innerText;
+    result();
+}
+
+function result() {
+    sum = inputOne.value;
+    sumTwo = inputTwo.value;
+    converter();
+}
+
+function converter() {
+    /* Update of exchanges */
+    let urlTwo = `https://api.exchangerate.host/convert?from=${one}&to=${two}&amount=1`;
+    fetch(urlTwo)
+        .then(res => res.json())
+        .then(data => {
+            exchangeOne.innerText = `1 ${one} = ${data.result.toFixed(4)} ${two}`;
+        })
+    let urlThree = `https://api.exchangerate.host/convert?from=${two}&to=${one}&amount=1`;
+    fetch(urlThree)
+        .then(res => res.json())
+        .then(data => {
+            exchangeTwo.innerText = `1 ${two} = ${data.result.toFixed(4)} ${one}`;
+        })
+
+    /* Convert operation */
+
+    if (bool == true && inputOne.value == '') {
+        inputTwo.value = 0;
+        sumTwo = '';
+    }
+    if (bool == false && inputTwo.value == '') {
+        inputOne.value = 0;
+        sum = '';
+    } else if (one == two) {
+        inputTwo.value = inputOne.value;
+        return;
+    } else {
+        if (bool == true) {
+            let url = `https://api.exchangerate.host/convert?from=${one}&to=${two}&amount=${sum}`;
+            fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    inputTwo.value = data.result.toFixed(4);
+                })
+                .catch((err) => {
+                    alert('Something went wrong!');
+                })
+        } else {
+            let url = `https://api.exchangerate.host/convert?from=${two}&to=${one}&amount=${sumTwo}`;
+            fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    inputOne.value = data.result.toFixed(4);
+                })
+                .catch((err) => {
+                    alert('Something went wrong!');
+                })
+        }
+    }
+}
+converter();
