@@ -47,8 +47,8 @@ a {
 
 a:hover {
     color: #000000;
-    text-shadow: 0 0 5px #a0a0a0;
 }
+
 .login {
     margin-right: 150px;
     padding: 10px;
@@ -59,7 +59,10 @@ a:hover {
     background-color: white;
 }
 
-
+.login:hover{
+    background-color: #833AE0;
+    color: #FFFFFF;
+}
 /* ----- main part ----- */
 
 #main {
