@@ -45,6 +45,10 @@ a {
     transition: transform .2s;
 }
 
+a:hover {
+    color: #000000;
+    text-shadow: 0 0 5px #a0a0a0;
+}
 .login {
     margin-right: 150px;
     padding: 10px;
