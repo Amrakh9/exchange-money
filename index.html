@@ -1,59 +1,60 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
-  </head>
-  <body>
-    <!-- HEADER -->
-    <div id="header">
-      <img class="logo" src="img/Asset 1@3x 1.svg" alt="Logo">
-      <div class="menu">
-          <a class="selectedmenu" href="#">БАНК</a>
-          <a href="#">БИЗНЕС</a>
-          <a href="#">ИНВЕСТИЦИИ</a>
-          <a href="#">СТРАХОВАНИЕ</a>
-          <a href="#">МОБАЙЛ</a>
-          <a href="#">ПУТЕШЕСТВИЯ</a>
-          <a href="#">РАЗВЛЕЧЕНИЯ</a>
-      </div>
-      <button class="login">ВОЙТИ</button>
-  </div>
-  <div id="main">
-      <h1>Конвертер валют онлайн</h1>
-      <div class="mainblock">
-          <div class="block1">
-              <p class="ihave">У меня есть</p>
-              <div class="currencies">
-                  <button id="currency1" class="currency round-left">RUB</button>
-                  <button id="currency1" class="currency">USD</button>
-                  <button id="currency1" class="currency">EUR</button>
-                  <button id="currency1" class="currency round-right">GBP</button>
-              </div>
-              <div class="status">
-                  <input id="input1" class="input" placeholder="Enter here..." type="number">
-                  <p id="exchange1" class="exchange">1 RUB = Loading...</p>
-              </div>
-          </div>
-          <div class="block2">
-              <p class="ihave">Хочу приобрести</p>
-              <div class="currencies">
-                  <button id="currency2" class="currency round-left">RUB</button>
-                  <button id="currency2" class="currency">USD</button>
-                  <button id="currency2" class="currency">EUR</button>
-                  <button id="currency2" class="currency round-right">GBP</button>
-              </div>
-              <div class="status">
-                  <input id="input2" class="input" placeholder="Enter here..." type="number">
-                  <p id="exchange2" class="exchange">1 USD = Loading...</p>
-              </div>
-          </div>
-      </div>
-  </div>
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="header">
+        <img class="logo" src="img/Asset 1@3x 1.svg" alt="Logo">
+        <div class="menu">
+            <a class="selectedmenu" href="#">БАНК</a>
+            <a href="#">БИЗНЕС</a>
+            <a href="#">ИНВЕСТИЦИИ</a>
+            <a href="#">СТРАХОВАНИЕ</a>
+            <a href="#">МОБАЙЛ</a>
+            <a href="#">ПУТЕШЕСТВИЯ</a>
+            <a href="#">РАЗВЛЕЧЕНИЯ</a>
+        </div>
+        <button class="login">ВОЙТИ</button>
+    </div>
+    <div id="main">
+        <h1>Конвертер валют онлайн</h1>
+        <div class="mainblock">
+            <div class="block1">
+                <p class="ihave">У меня есть</p>
+                <div class="currencies">
+                    <button id="currency1" class="currency round-left">RUB</button>
+                    <button id="currency1" class="currency">USD</button>
+                    <button id="currency1" class="currency">EUR</button>
+                    <button id="currency1" class="currency round-right">GBP</button>
+                </div>
+                <div class="status">
+                    <input id="input1" class="input" placeholder="Enter here..." type="number">
+                    <p id="exchange1" class="exchange">1 RUB = Loading...</p>
+                </div>
+            </div>
+            <div class="block2">
+                <p class="ihave">Хочу приобрести</p>
+                <div class="currencies">
+                    <button id="currency2" class="currency round-left">RUB</button>
+                    <button id="currency2" class="currency">USD</button>
+                    <button id="currency2" class="currency">EUR</button>
+                    <button id="currency2" class="currency round-right">GBP</button>
+                </div>
+                <div class="status">
+                    <input id="input2" class="input" placeholder="Enter here..." type="number">
+                    <p id="exchange2" class="exchange">1 USD = Loading...</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
-  </body>
+</body>
+
 </html>

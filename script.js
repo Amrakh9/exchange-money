@@ -7,24 +7,14 @@ const exchangeTwo = document.querySelector('#exchange2'); /*right exchange*/
 
 let one = 'RUB'; /*left selected currency*/
 let two = 'USD'; /*right selected currency*/
-let sum = inputOne.value = 1; /*left input current value*/
-let sumTwo = inputTwo.value; /*right input current value*/
 let bool = true;
 
-inputOne.addEventListener('keyup', result);
-inputTwo.addEventListener('keyup', result);
-inputOne.addEventListener('click', rev);
-inputTwo.addEventListener('click', revTwo);
+inputOne.value = 1;
+inputOne.addEventListener('keyup', converter);
+inputTwo.addEventListener('keyup', converter);
+inputOne.addEventListener('click', () => bool = true);
+inputTwo.addEventListener('click', () => bool = false);
 
-function rev() {
-    bool = true;
-};
-
-function revTwo() {
-    bool = false;
-};
-
-/* left side default selection */
 currencyOne.forEach((currencyOne) => {
     if (currencyOne.innerText == one) {
         currencyOne.style.background = '#833AE0';
@@ -33,7 +23,6 @@ currencyOne.forEach((currencyOne) => {
     currencyOne.addEventListener('click', clickButtonCurrencyOne);
 });
 
-/* right side default selection */
 currencyTwo.forEach((currencyTwo) => {
     if (currencyTwo.innerText == two) {
         currencyTwo.style.background = '#833AE0';
@@ -42,8 +31,7 @@ currencyTwo.forEach((currencyTwo) => {
     currencyTwo.addEventListener('click', clickButtonCurrencyTwo);
 });
 
-/*left side click actions */
-function clickButtonCurrencyOne(event) {
+function clickButtonCurrencyOne(event) { /*left side click actions */
     currencyOne.forEach((currencyOne) => {
         if (currencyOne.style.background !== '') {
             currencyOne.style.background = '';
@@ -53,11 +41,10 @@ function clickButtonCurrencyOne(event) {
     event.target.style.background = '#833AE0';
     event.target.style.color = '#FFFFFF';
     one = event.target.innerText;
-    result();
+    converter();
 }
 
-/*right side click actions */
-function clickButtonCurrencyTwo(event) {
+function clickButtonCurrencyTwo(event) { /*right side click actions */
     currencyTwo.forEach((currencyTwo) => {
         if (currencyTwo.style.background !== '') {
             currencyTwo.style.background = '';
@@ -67,17 +54,10 @@ function clickButtonCurrencyTwo(event) {
     event.target.style.background = '#833AE0';
     event.target.style.color = '#FFFFFF';
     two = event.target.innerText;
-    result();
-}
-
-function result() {
-    sum = inputOne.value;
-    sumTwo = inputTwo.value;
     converter();
 }
 
 function converter() {
-    /* Update of exchanges */
     let urlTwo = `https://api.exchangerate.host/convert?from=${one}&to=${two}&amount=1`;
     fetch(urlTwo)
         .then(res => res.json())
@@ -90,18 +70,17 @@ function converter() {
         .then(data => {
             exchangeTwo.innerText = `1 ${two} = ${data.result.toFixed(4)} ${one}`;
         })
-
-    /* Convert operation */
-
-    if (one == two && bool == true) {
-        inputTwo.value = inputOne.value;
-        return;
-    } else if (one == two && bool == false) {
-        inputOne.value = inputTwo.value;
-        return;
+    if (one == two) {
+        if (bool == true) {
+            inputTwo.value = inputOne.value;
+            return;
+        } else {
+            inputOne.value = inputTwo.value;
+            return;
+        }
     } else {
         if (bool == true) {
-            let url = `https://api.exchangerate.host/convert?from=${one}&to=${two}&amount=${sum}`;
+            let url = `https://api.exchangerate.host/convert?from=${one}&to=${two}&amount=${inputOne.value}`;
             fetch(url)
                 .then(res => res.json())
                 .then(data => {
@@ -111,7 +90,7 @@ function converter() {
                     alert('Something went wrong!');
                 })
         } else {
-            let url = `https://api.exchangerate.host/convert?from=${two}&to=${one}&amount=${sumTwo}`;
+            let url = `https://api.exchangerate.host/convert?from=${two}&to=${one}&amount=${inputTwo.value}`;
             fetch(url)
                 .then(res => res.json())
                 .then(data => {

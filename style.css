@@ -29,10 +29,6 @@ body {
     font-weight: 500;
 }
 
-.selectedmenu {
-    color: #000000;
-}
-
 .logo {
     width: 89px;
     height: 23px;
@@ -44,11 +40,6 @@ a {
     text-decoration: none;
     transition: transform .2s;
 }
-
-a:hover {
-    color: #000000;
-}
-
 .login {
     margin-right: 150px;
     padding: 10px;
@@ -63,6 +54,23 @@ a:hover {
     background-color: #833AE0;
     color: #FFFFFF;
 }
+
+
+
+/* animations */
+
+a:hover {
+    color: #000000;
+    text-shadow: 0 0 5px #a0a0a0;
+}
+
+.login:hover {
+    background-color: #833AE0;
+    color: #FFFFFF;
+    box-shadow: 0 0 10px #833AE0;
+}
+
+
 /* ----- main part ----- */
 
 #main {
@@ -126,10 +134,15 @@ input {
     margin: 10px 0 25px 15px;
     border: 0px;
     font-size: 36px;
+    font-weight: 700;
     width: 230px;
-    border-color: #833AE0;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
 .exchange {
     margin: 0 0 0 15px;
@@ -137,7 +150,18 @@ input {
 }
 
 
+/* animations  */
 
+input:focus {
+    outline: none !important;
+    border: 0px;
+    border-radius: 5px;
+}
+
+.currency:hover {
+    background-color: #833AE0;
+    color: #FFFFFF;
+}
 
 
 /*for tablets*/
@@ -215,3 +239,4 @@ input {
         align-self: center;
     }
 }
+
