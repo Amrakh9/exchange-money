@@ -84,7 +84,11 @@ function converter() {
             fetch(url)
                 .then(res => res.json())
                 .then(data => {
-                    inputTwo.value = data.result.toFixed(4);
+                    if (inputOne.value == '') {
+                        inputTwo.value = '';
+                    } else {
+                        inputTwo.value = data.result.toFixed(4);
+                    }
                 })
                 .catch((err) => {
                     alert('Something went wrong!');
@@ -94,7 +98,11 @@ function converter() {
             fetch(url)
                 .then(res => res.json())
                 .then(data => {
-                    inputOne.value = data.result.toFixed(4);
+                    if (inputTwo.value == '') {
+                        inputOne.value = '';
+                    } else {
+                        inputOne.value = data.result.toFixed(4);
+                    }
                 })
                 .catch((err) => {
                     alert('Something went wrong!');
